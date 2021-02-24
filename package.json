@@ -25,6 +25,7 @@
     "gulp-sass": "^4.1.0",
     "gulp-uglify": "^3.0.2",
     "gulp-webserver": "^0.9.1",
-    "node-sass": "^5.0.0"
+    "node-sass": "^5.0.0",
+    "pug": "^3.0.0"
   }
 }

@@ -1,0 +1,19 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+}
+
+main {
+  display: grid;
+  grid-template-columns: repeat(3, 33.3333%);
+  grid-template-rows: auto;
+  flex-wrap: auto;
+  cursor: pointer;
+  div {
+    display: flex;
+    flex-direction: column;
+  }
+}

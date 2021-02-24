@@ -21,19 +21,14 @@ sass.compiler = require("node-sass");
 
 const routes = {
   pug: {
-    watch: "src/**/*.pug",
-    src: "src/index.pug",
+    watch: "src/views/**/*.pug",
+    src: "src/views/index.pug",
     dest: "dist",
   },
   css: {
     watch: "src/scss/**/*.scss",
     src: "src/scss/styles.scss",
     dest: "dist/css",
-  },
-  js: {
-    watch: "src/img.js",
-    src: "src/img.js",
-    dest: "dist",
   },
   reset: {
     src: "src/reset.css",
@@ -62,28 +57,20 @@ const reset = () =>
 const pug = () =>
   gulp.src(routes.pug.src).pipe(gpug()).pipe(gulp.dest(routes.pug.dest));
 
-const js = () =>
-  gulp
-    .src(routes.js.src)
-    .pipe(babel())
-    .pipe(uglify())
-    .pipe(gulp.dest(routes.js.dest));
-
 const watch = () => {
   gulp.watch(routes.css.watch, styles);
   gulp.watch(routes.pug.watch, pug);
-  gulp.watch(routes.js.watch, js);
 };
 
 const webserver = () => gulp.src("dist").pipe(ws({ livereload: true }));
 
-const clean = () => del(["dist/styles.css", "dist/index.html", "dist/img.js"]);
+const clean = () => del(["dist/css/styles.css", "dist/views/index.html"]);
 
 // build delete for preventing conflict
 const prepare = gulp.series([clean]);
 
 // pug transcompile
-const assets = gulp.series([reset, styles, pug, js]);
+const assets = gulp.series([reset, styles, pug]);
 
 // excute webserver
 const live = gulp.parallel([webserver, watch]);
