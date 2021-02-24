@@ -11,7 +11,7 @@ import gpug from "gulp-pug";
 
 // live
 import ws from "gulp-webserver";
-import ghpages from "gulp-gh-pages";
+import ghPages from "gulp-gh-pages";
 
 sass.compiler = require("node-sass");
 
@@ -45,7 +45,7 @@ const styles = () =>
     .pipe(minify())
     .pipe(gulp.dest(routes.css.dest));
 
-const gh = () => gulp.src("dist/**/*").pipe(ghpages());
+const gh = () => gulp.src("dist/**/*").pipe(ghPages());
 
 const reset = () =>
   gulp.src(routes.reset.src).pipe(minify()).pipe(gulp.dest(routes.reset.dest));
@@ -60,7 +60,7 @@ const watch = () => {
 
 const webserver = () => gulp.src("dist").pipe(ws({ livereload: true }));
 
-const clean = () => del(["dist/css/styles.css", "dist/views/index.html"]);
+const clean = () => del(["dist/", ".publish"]);
 
 // build delete for preventing conflict
 const prepare = gulp.series([clean]);
