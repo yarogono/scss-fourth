@@ -8,7 +8,6 @@ import autoprefixer from "gulp-autoprefixer";
 
 // Pug
 import gpug from "gulp-pug";
-import babel from "gulp-babel";
 
 // js
 import uglify from "gulp-uglify";
