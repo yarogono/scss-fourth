@@ -16,4 +16,12 @@ main {
     display: flex;
     flex-direction: column;
   }
+  span {
+    font-size: 14px;
+    font-weight: 600;
+    height: 2rem;
+    display: flex;
+    padding-left: 12px;
+    align-items: center;
+  }
 }
