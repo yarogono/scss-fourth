@@ -9,9 +9,6 @@ import autoprefixer from "gulp-autoprefixer";
 // Pug
 import gpug from "gulp-pug";
 
-// js
-import uglify from "gulp-uglify";
-
 // live
 import ws from "gulp-webserver";
 import ghpages from "gulp-gh-pages";
@@ -48,7 +45,7 @@ const styles = () =>
     .pipe(minify())
     .pipe(gulp.dest(routes.css.dest));
 
-const gh = () => gulp.src("dist/**/*").pipe(ghPages());
+const gh = () => gulp.src("dist/**/*").pipe(ghpages());
 
 const reset = () =>
   gulp.src(routes.reset.src).pipe(minify()).pipe(gulp.dest(routes.reset.dest));
